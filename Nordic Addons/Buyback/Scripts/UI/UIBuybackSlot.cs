@@ -42,7 +42,7 @@ public class UIBuybackSlot : MonoBehaviour
         textItemAmount.text = slot.amount.ToString();
 
         // buy price, it costs the sell price to get it back, simple misstake.
-        textBuybackPrice.text = (itemData.sellPrice * slot.amount).ToString();
+        textBuybackPrice.text = (itemData.sellPrice * slot.amount) + " gold";
 
         // setup the button.
         btn.onClick.SetListener(() => { Player.localPlayer.npcTrading.CmdBuyBuybackItem(index); } );   
