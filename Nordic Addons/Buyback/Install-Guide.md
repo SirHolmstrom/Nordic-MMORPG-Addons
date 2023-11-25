@@ -11,12 +11,13 @@
 ### **Step 2**: **Setup the Buyback Panel**
 Drag the **BuybackPanel** from ``Assets\uMMORPG\Scripts\Addons\Nordic Addons\Buyback\Prefabs`` to the **NpcTrading panel**.
 
+![Alt text for the image](https://jokeoverflow.xyz/Install-Guides/Buyback/step2.png)
 
 ### **Step 3**: **Add Required Fields**
 The Buyback Prefab is located at:
 *Assets\uMMORPG\Scripts\Addons\Nordic Addons\Buyback\Prefabs\Slot\* **UIBuybackSlot.prefab**
 
-
+![Alt text for the image](https://jokeoverflow.xyz/Install-Guides/Buyback/step3.png)
 
 ### **Step 4**: **Test the Addon**
 Play and sell an item. The panel will only be visible if there is something to buy back by default.
