@@ -15,10 +15,10 @@
 <center> <img src="https://jokeoverflow.xyz/Install-Guides/Buyback/step4.png" width="450" alt="Alt text for the image"> </center>
 
 ```
-                    // BUYBACK: handles the buyback logic.
-                    // nothing to do here if the item doesn't allow to be bought back.
-                    if (slot.item.data.CanBuyBack)
-                        HandleBuyback(index, amount);
+  // BUYBACK: handles the buyback logic.
+  // nothing to do here if the item doesn't allow to be bought back.
+  if (slot.item.data.CanBuyBack)
+      HandleBuyback(index, amount);
 ```
 
 ### **Step 2**: **Setup the Buyback Panel**
