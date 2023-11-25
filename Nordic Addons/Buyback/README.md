@@ -10,7 +10,7 @@
 <br>
 **Make sure** that *PlayerNpcTrading* is declared as **partial**.
 
-**Inside the method** *CmdSellItem* **inside** *PlayerNpcTrading.cs*
+**Inside the method** *CmdSellItem* **inside** *PlayerNpcTrading.cs* **add the following as above**:
 
 <center> <img src="https://jokeoverflow.xyz/Install-Guides/Buyback/step4.png" width="450" alt="Alt text for the image"> </center>
 
