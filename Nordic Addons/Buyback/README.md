@@ -1,6 +1,8 @@
 # Nordic Buyback Addon
 *This addon allows you to buy back items that you have previously sold. It becomes available if there are any items to buy back.*
 
+<center> <img src="https://jokeoverflow.xyz/Install-Guides/Buyback/preview2.png" width="300" alt="Alt text for the image"> </center>
+
 ## **Installation Steps**
 ### **Step 1**: **Ensure Partial Classes**
 
