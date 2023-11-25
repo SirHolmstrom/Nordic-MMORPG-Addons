@@ -8,6 +8,15 @@
 <br>
 **Make sure** that *PlayerNpcTrading* is declared as **partial**.
 
+**Inside the method** *CmdSellItem* **inside** *PlayerNpcTrading.cs*
+```
+                    // BUYBACK: handles the buyback logic.
+                    // nothing to do here if the item doesn't allow to be bought back.
+                    if (slot.item.data.CanBuyBack)
+                        HandleBuyback(index, amount);
+```
+![Alt text for the image](https://jokeoverflow.xyz/Install-Guides/Buyback/step4.png)
+
 ### **Step 2**: **Setup the Buyback Panel**
 Drag the **BuybackPanel** from ``Assets\uMMORPG\Scripts\Addons\Nordic Addons\Buyback\Prefabs`` to the **NpcTrading panel**.
 
