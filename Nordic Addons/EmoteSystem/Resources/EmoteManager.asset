@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39b290d1318aa224390b11e58627dead, type: 3}
+  m_Name: EmoteManager
+  m_EditorClassIdentifier: 
+  emotes:
+  - identifier: Dance
+    emoteType: 0
+    animationClips:
+    - {fileID: 7400002, guid: f58c88b804445a04dabcd316aac2be50, type: 3}
+    - {fileID: 7400006, guid: a46e4a2df01eb5f4b98c51d2745819ab, type: 3}
+    audioClips: []
+  - identifier: Wave
+    emoteType: 1
+    animationClips:
+    - {fileID: 7400000, guid: de09d408ba4ba99489d0ad1f73a0ac54, type: 3}
+    audioClips: []
+  - identifier: Cheer
+    emoteType: 1
+    animationClips:
+    - {fileID: 7400000, guid: 967cd4496fd606949b4474efc3c4b098, type: 3}
+    - {fileID: 7400000, guid: 2db69e2e66090a345894461abe625bcf, type: 3}
+    audioClips: []
+  - identifier: Clap
+    emoteType: 1
+    animationClips:
+    - {fileID: 3310803488728592138, guid: bac76582537ff434db581c571a4f5d17, type: 3}
+    - {fileID: 7400000, guid: 84dbfa7d885b0884191a1228af91e878, type: 3}
+    audioClips: []
+  Emote_Animator_Layer: Emote Fullbody
+  Empty_Animator_State: Empty
+  animatorControllers:
+  - {fileID: 9100000, guid: 6a9656f614bb04aedb1d40c053bc2dca, type: 2}
