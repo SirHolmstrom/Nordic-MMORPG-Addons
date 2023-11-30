@@ -8,7 +8,9 @@
 ## **Installation Steps**
 
 ### **Step 0**: **Add PlayerEmote to every player prefab.**
+<br>
 It does everything it need so just leave it.
+![Alt text for the image](https://jokeoverflow.xyz/Install-Guides/EmoteSystem/newplayeremote.png)
 
 ### **Step 1**: **Select EmoteManager**
 The EmoteManager Scriptable Object is located at:
