@@ -148,7 +148,7 @@ public partial class PlayerChat
     private void RollMsgOnClients(int value, int min, int max)
     {
         StringBuilder tip = new StringBuilder(rollText);
-        tip.Replace("{PLAYER}", name);
+        tip.Replace("{NAME}", name);
         tip.Replace("{VALUE}", value.ToString());
 
         string message = tip + " (" + min + "-" + max + ")";
