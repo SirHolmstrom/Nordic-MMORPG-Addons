@@ -27,8 +27,8 @@ MonoBehaviour:
   - identifier: Cheer
     emoteType: 1
     animationClips:
-    - {fileID: 7400002, guid: 3f23e469ca8348844a4d48616b1dbd61, type: 3}
-    - {fileID: 7400000, guid: 6c3b9ec66b4a81d4da78abaae536875e, type: 2}
+    - {fileID: 7400000, guid: 54144ff7de7e9e040acd9b7b6f6f03b1, type: 2}
+    - {fileID: 7400000, guid: a838cfebda4c0e749aacb9abf38c7c66, type: 2}
     audioClips: []
   - identifier: Clap
     emoteType: 1
