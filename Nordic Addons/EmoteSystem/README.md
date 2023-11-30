@@ -6,6 +6,10 @@
 **After importing** the addon everything should work, right out of the box code wise, make sure you have the **Utils** folder. 
 <br>
 ## **Installation Steps**
+
+### **Step 0**: **Add PlayerEmote to every player prefab.**
+It does everything it need so just leave it.
+
 ### **Step 1**: **Select EmoteManager**
 The EmoteManager Scriptable Object is located at:
 *Assets\uMMORPG\Scripts\Addons\Nordic-MMORPG-Addons\Nordic Addons\EmoteSystem\***EmoteManager**
