@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using UnityEditor.Events;
 
 public class PlayerEmote : NetworkBehaviour
 {
@@ -89,12 +90,6 @@ public class PlayerEmote : NetworkBehaviour
 
     // Mirror Callbacks.
     #region Mirror Callback
-
-    public override void OnStartLocalPlayer()
-    {
-        // add the messages handling to player chat (IE /dance /wave etc..).
-        player.chat.onSubmit.AddListener(HandleMessageEmote);
-    }
 
     public override void OnStartClient()
     {
@@ -274,7 +269,18 @@ public class PlayerEmote : NetworkBehaviour
     {
         if (player == null)
             player = GetComponent<Player>();
+
+        if (player)
+        {
+            // adds it automatically.
+            if (!player.chat.onSubmit.ContainsPersistentListener("HandleMessageEmote"))
+            {
+                // add the messages handling to player chat (IE /dance /wave etc..).
+                UnityEventTools.AddPersistentListener(player.chat.onSubmit, HandleMessageEmote);
+            }
+        }
     }
+
 #endif
 
     #endregion
