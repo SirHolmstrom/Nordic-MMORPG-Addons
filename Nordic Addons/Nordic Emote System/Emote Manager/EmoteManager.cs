@@ -40,8 +40,9 @@ public class EmoteManager : ScriptableObject
         }
     }
 
-    public string Emote_Animator_Layer = "Emote Fullbody";
-    public string Empty_Animator_State = "Empty";
+    // feel free to change both of this, you can even expose it but I want to prevent misstakes!
+    [HideInInspector] public string Emote_Animator_Layer = "Emote Fullbody";
+    [HideInInspector] public string Empty_Animator_State = "Empty";
 
     public List<EmoteData> Emotes => emotes;
 

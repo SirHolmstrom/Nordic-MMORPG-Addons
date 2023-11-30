@@ -16,25 +16,25 @@ MonoBehaviour:
   - identifier: Dance
     emoteType: 0
     animationClips:
-    - {fileID: 7400002, guid: f58c88b804445a04dabcd316aac2be50, type: 3}
-    - {fileID: 7400006, guid: a46e4a2df01eb5f4b98c51d2745819ab, type: 3}
+    - {fileID: 7400000, guid: 4adadac6c58d2954e99f6aa52c3f4dd0, type: 2}
+    - {fileID: 7400000, guid: 97042a6a7ba3839429581077381b274f, type: 2}
     audioClips: []
   - identifier: Wave
     emoteType: 1
     animationClips:
-    - {fileID: 7400000, guid: de09d408ba4ba99489d0ad1f73a0ac54, type: 3}
+    - {fileID: 7400000, guid: ebae5a944b5bcc2439aaf7bbee7351e2, type: 2}
     audioClips: []
   - identifier: Cheer
     emoteType: 1
     animationClips:
-    - {fileID: 7400000, guid: 967cd4496fd606949b4474efc3c4b098, type: 3}
-    - {fileID: 7400000, guid: 2db69e2e66090a345894461abe625bcf, type: 3}
+    - {fileID: 7400002, guid: 3f23e469ca8348844a4d48616b1dbd61, type: 3}
+    - {fileID: 7400000, guid: 6c3b9ec66b4a81d4da78abaae536875e, type: 2}
     audioClips: []
   - identifier: Clap
     emoteType: 1
     animationClips:
-    - {fileID: 3310803488728592138, guid: bac76582537ff434db581c571a4f5d17, type: 3}
-    - {fileID: 7400000, guid: 84dbfa7d885b0884191a1228af91e878, type: 3}
+    - {fileID: 7400000, guid: 4e7ab8f591aafbe4c951928a7df60c8d, type: 2}
+    - {fileID: 7400000, guid: 25fb434f17783a840b50943fce9358da, type: 2}
     audioClips: []
   Emote_Animator_Layer: Emote Fullbody
   Empty_Animator_State: Empty
