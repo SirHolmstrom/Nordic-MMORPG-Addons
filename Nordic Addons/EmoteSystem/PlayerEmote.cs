@@ -14,7 +14,7 @@ public class PlayerEmote : NetworkBehaviour
 
     /// this value is the index of our current emote,
     /// player will find the emote from the local dict that the emote manager loads.
-    [SyncVar(hook = nameof(OnEmoteChanged))] public int currentEmoteIndex = -1;
+    [SyncVar(hook = nameof(OnEmoteChanged))] private int currentEmoteIndex = -1;
 
     /// cheap and reliable way to help late joiners or networked culled players seeing us for the first time.
     [SyncVar] private byte animationVariant;
