@@ -15,23 +15,35 @@ MonoBehaviour:
   emotes:
   - identifier: Dance
     emoteType: 0
+    EmoteText:
+      emoteQuote: '{EMOTER} burst into dance.'
+      emoteQuoteTarget: '{EMOTER} dance with {TARGET}.'
     animationClips:
     - {fileID: 7400000, guid: 4adadac6c58d2954e99f6aa52c3f4dd0, type: 2}
     - {fileID: 7400000, guid: 97042a6a7ba3839429581077381b274f, type: 2}
     audioClips: []
   - identifier: Wave
     emoteType: 1
+    EmoteText:
+      emoteQuote: '{EMOTER} wave.'
+      emoteQuoteTarget: '{EMOTER} wave at {TARGET}.'
     animationClips:
     - {fileID: 7400000, guid: ebae5a944b5bcc2439aaf7bbee7351e2, type: 2}
     audioClips: []
   - identifier: Cheer
     emoteType: 1
+    EmoteText:
+      emoteQuote: '{EMOTER} cheer!'
+      emoteQuoteTarget: '{EMOTER} cheer at {TARGET}.'
     animationClips:
     - {fileID: 7400000, guid: 54144ff7de7e9e040acd9b7b6f6f03b1, type: 2}
     - {fileID: 7400000, guid: a838cfebda4c0e749aacb9abf38c7c66, type: 2}
     audioClips: []
   - identifier: Clap
     emoteType: 1
+    EmoteText:
+      emoteQuote: '{EMOTER} clap excitedly.'
+      emoteQuoteTarget: '{EMOTER} clap excitedly for {TARGET}.'
     animationClips:
     - {fileID: 7400000, guid: 4e7ab8f591aafbe4c951928a7df60c8d, type: 2}
     - {fileID: 7400000, guid: 25fb434f17783a840b50943fce9358da, type: 2}

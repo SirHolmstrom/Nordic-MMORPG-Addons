@@ -13,9 +13,6 @@ public class EmoteManager : ScriptableObject
 
     private static EmoteManager _instance;
 
-    //public static EmoteManager Settings => _instance ?? (_instance = Resources.Load<EmoteManager>("EmoteManager") );
-
-
     public static EmoteManager Instance
     {
         get
@@ -51,7 +48,6 @@ public class EmoteManager : ScriptableObject
 
     public void Initialize()
     {
-        Debug.Log("INIT");
         emoteDictionaryById = new Dictionary<int, EmoteData>();
         emoteDictionaryByIdentifier = new Dictionary<string, EmoteData>();
 

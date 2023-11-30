@@ -23,6 +23,8 @@ public class EmoteManagerEditor : Editor
         }
     }
 
+    #region NONE GUI LOGIC
+
     private void UpdateAnimators(EmoteManager emoteManager)
     {
         // First, we want to ensure all animation clips have unique names,
@@ -256,5 +258,6 @@ public class EmoteManagerEditor : Editor
         AssetDatabase.Refresh();
     }
 
+    #endregion
 
 }

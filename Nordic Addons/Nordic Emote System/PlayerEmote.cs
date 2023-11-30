@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 using UnityEditor.Events;
+using System.Text;
+using UnityEngine.UI;
 
 public class PlayerEmote : NetworkBehaviour
 {
@@ -178,7 +180,14 @@ public class PlayerEmote : NetworkBehaviour
         if (data != null)
         {
             AnimationClip clip = data.animationClips[animationVariant];
+
+            // audio.
             PlayEmoteAudio(data);
+
+            // emote message.
+            ShowEmoteMessage(data);
+
+            // animate.
             PlayEmoteAnimation(clip);
         }
         else
@@ -257,6 +266,33 @@ public class PlayerEmote : NetworkBehaviour
                 }
             }
         }
+    }
+
+    [Client]
+    public void ShowEmoteMessage(EmoteData data)
+    {
+        bool isEmoter = player == Player.localPlayer;
+
+        // see if player has a target.
+        bool hasTarget = player.target != null;
+
+        // string builder to replace the names.
+        StringBuilder sb = new StringBuilder(hasTarget && !string.IsNullOrWhiteSpace(data.EmoteText.emoteQuoteTarget) ? data.EmoteText.emoteQuoteTarget : data.EmoteText.emoteQuote);
+
+        // if our stringbuilder is null return.
+        if (sb.Length == 0) return;
+
+        // always change {EMOTER} to players name.
+        sb.Replace("{EMOTER}", isEmoter ? "You" : player.name);
+
+        // if the player that does the emote has a target and there is a emoteQuote for target:
+        if (hasTarget && !string.IsNullOrWhiteSpace(data.EmoteText.emoteQuoteTarget))
+        {
+            // change {TARGET} with it's name.
+            sb.Replace("{TARGET}", player.target == Player.localPlayer ? "You" : player.target.name);
+        }
+
+        UIChat.singleton.AddEmoteMessage(new ChatMessage("", "", "" + sb.ToString().Colorize("#FF9900"), "", player.chat.localChannel.textPrefab));
     }
 
     #endregion

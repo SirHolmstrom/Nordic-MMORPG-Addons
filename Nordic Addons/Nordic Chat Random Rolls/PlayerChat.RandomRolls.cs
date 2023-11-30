@@ -16,12 +16,14 @@ public partial class PlayerChat
     // the logic that will look for /roll command
     public void CheckForRandomRollMessage(string message)
     {
-        if (message.ToLower().StartsWith("/roll"))
+        string check = message.ToLower();
+
+        if (check.StartsWith("/roll"))
         {
             TryRoll(message);
         }
 
-        else if (message.ToLower().Equals("/coinflip") || message.ToLower().StartsWith("/side") || message.ToLower().StartsWith("/flip"))
+        else if (check.StartsWith("/coinflip") || check.StartsWith("/side") || check.StartsWith("/flip"))
         {
             TryCoinFlip(message);
         }
@@ -62,12 +64,12 @@ public partial class PlayerChat
 
                 else
                 {
-                    UIChat.singleton.AddMessage(new ChatMessage("", infoChannel.identifierIn, "Use /roll <MIN> <MAX> <TIMES(5max)> ", "", infoChannel.textPrefab));
+                    UIChat.singleton.AddMessage(new ChatMessage("", infoChannel.identifierIn, "Use /roll or /side or /flip <MIN> <MAX> <TIMES(5max)> ", "", infoChannel.textPrefab));
                 }
             }
             else
             {
-                UIChat.singleton.AddMessage(new ChatMessage("", infoChannel.identifierIn, "Use /roll <MIN> <MAX> <TIMES(5max)> ", "", infoChannel.textPrefab));
+                UIChat.singleton.AddMessage(new ChatMessage("", infoChannel.identifierIn, "Use /roll  or /side or /flip <MIN> <MAX> <TIMES(5max)> ", "", infoChannel.textPrefab));
             }
 
         }
@@ -164,7 +166,7 @@ public partial class PlayerChat
     {
         string[] to = text.Split(" ");
 
-        if (to.Length == 2)
+        if (to.Length > 1)
         {
             int loops = 0;
 

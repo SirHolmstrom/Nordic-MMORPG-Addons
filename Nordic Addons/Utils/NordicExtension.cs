@@ -53,4 +53,11 @@ public static class NordicExtension
         return false;
     }
 
+    /// <summary>
+    /// Rich text colorization.
+    /// </summary>
+    public static string Colorize(this string text, string hexColor)
+    {
+        return $"<color={hexColor}>{text}</color>";
+    }
 }
