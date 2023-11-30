@@ -3,7 +3,7 @@
 
 <center> <img src="https://jokeoverflow.xyz/Install-Guides/EmoteSystem/emote02.png" width="300" alt="Alt text for the image"> </center>
 
-**After importing** the addon everything should work, right out of the box code wise. 
+**After importing** the addon everything should work, right out of the box code wise, make sure you have the **Utils** folder. 
 <br>
 ## **Installation Steps**
 ### **Step 1**: **Select EmoteManager**
