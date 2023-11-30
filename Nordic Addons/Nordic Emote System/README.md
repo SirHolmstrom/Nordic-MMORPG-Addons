@@ -35,6 +35,7 @@ Play and type /<Identifier> the <Identifier> is what you named the emote, in the
 It's super easy to add more emotes, simply make a new entry in the list, assign as many animation variants as you wish, 
 give it a identifier "name", 
 decide if you want it to be able to loop or not, 
+if you wish to not use the chat emote text, then just leave blank,
 then **CLICK UPDATE ANIMATOR** and it will work.
 
 ![Alt text for the image](https://jokeoverflow.xyz/Install-Guides/EmoteSystem/populate.png)
@@ -51,3 +52,16 @@ Player.Localplayer.emote.TryEmote("Dance");
 ```
 - we don't send the string to the server it's getting the id after that and finds the EmoteData using that integer.
 - OneShot means it will stop playing after one loop while Loop will continue until you start moving or leaving players "IDLE" state.
+
+### UPDATE **Emote Text In Chat**
+Introducing a very neat option to use an emote message in text, if you have a target it will display that emote in relation to it, if no target it's just a simple emote.
+for example:
+no target emote quote:
+{EMOTER} clap excitedly.
+target emote quote:
+{EMOTER} clap excitedly for {TARGET}.
+The neat thing is this never goes via the server but is synced accross, so no extra overhead.
+EMOTER will be translated the following way:
+are we the EMOTER? You : Name
+are we the TARGET? You : Name
+So while you see "You burst into Dance with OtherPlayerName", they see "Yourname burst into Dance with OtherPlayerName (or YOU if the target is you).
