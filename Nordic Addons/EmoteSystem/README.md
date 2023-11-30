@@ -10,7 +10,8 @@
 ### **Step 0**: **Add PlayerEmote to every player prefab.**
 <br>
 It does everything it need so just leave it.
-![Alt text for the image](https://jokeoverflow.xyz/Install-Guides/EmoteSystem/newplayeremote.png)
+
+![Alt text for the image](https://jokeoverflow.xyz/Install-Guides/EmoteSystem/manager.png)
 
 ### **Step 1**: **Select EmoteManager**
 The EmoteManager Scriptable Object is located at:
@@ -39,7 +40,6 @@ then **CLICK UPDATE ANIMATOR** and it will work.
 
 ![Alt text for the image](https://jokeoverflow.xyz/Install-Guides/EmoteSystem/populate.png)
 
-<br>
 <br>
 <br>
 
