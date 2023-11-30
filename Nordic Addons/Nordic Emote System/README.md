@@ -44,7 +44,6 @@ then **CLICK UPDATE ANIMATOR** and it will work.
 <br>
 
 ### Note:
-*MAKE SURE THE ANIMATION CLIPS ARE NAMED AND NOT Mixmo.com for example, the name must be unique. IE Dance01, Dance02, Dance_ etc.
 *If you wish to call it from a button or similar you simply use*:
 ```
 // for example.
