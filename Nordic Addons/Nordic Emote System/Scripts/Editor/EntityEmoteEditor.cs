@@ -7,40 +7,61 @@ using System.Linq;
 using System;
 using System.Collections.Generic;
 
-[CustomEditor(typeof(EmoteManager))]
-public class EmoteManagerEditor : Editor
+[CustomEditor(typeof(PlayerEmote))]
+public class EntityEmoteEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
 
-        EditorGUILayout.HelpBox("Click 'Update Animators' to synchronize the animation clips from EmoteData to the specified Animator Controllers. This will update existing states or add new states based on the animations defined in EmoteManager.", MessageType.Info);
-        EditorGUILayout.HelpBox("If animation clips are called 'mixamo.com' or have duplicated names, 'Update Animators' will create new animation clips in order to make sure the addon works as intended.", MessageType.Info);
+        PlayerEmote playerEmote = (PlayerEmote)target;
 
-        EmoteManager emoteManager = (EmoteManager)target;
-
-        if (GUILayout.Button("Update Animators"))
+        if (playerEmote.animatorControllers.Count == 0)
         {
-            UpdateAnimators(emoteManager);
+            if (GUILayout.Button("Find Animator Controllers Used On This Entity"))
+            {
+                if (playerEmote.player.animator)
+                {
+                    playerEmote.animatorControllers.Add(playerEmote.player.animator.runtimeAnimatorController as AnimatorController);
+                }
+
+                AssetDatabase.SaveAssets();
+                serializedObject.ApplyModifiedProperties();
+            }
+        }
+
+        if (playerEmote.EmoteData != null && playerEmote.animatorControllers.Count != 0)
+        {
+            EditorGUILayout.HelpBox("Click 'Update Animators' to synchronize the animation clips from EmoteData to the specified Animator Controllers. This will update existing states or add new states based on the animations defined in EmoteManager.", MessageType.Info);
+            EditorGUILayout.HelpBox("If animation clips are called 'mixamo.com' or have duplicated names, 'Update Animators' will create new animation clips in order to make sure the addon works as intended.", MessageType.Info);
+
+            if (GUILayout.Button("Update Animators"))
+            {
+                UpdateAnimators(playerEmote);
+            }
+        }
+        else
+        {
+            EditorGUILayout.HelpBox("You must assign a Scriptable Emote List object to the PlayerEmote component.", MessageType.Warning);
         }
     }
 
     #region NONE GUI LOGIC
 
-    private void UpdateAnimators(EmoteManager emoteManager)
+    private void UpdateAnimators(PlayerEmote entityEmote)
     {
         // First, we want to ensure all animation clips have unique names,
         // this will create duplicates and rename them otherwise..
-        EnsureUniqueClipNames(emoteManager);
+        EnsureUniqueClipNames(entityEmote);
 
         EditorApplication.delayCall += () =>
         {
             // grab the animator controllers from the manager.
-            AnimatorController[] animatorControllers = emoteManager.animatorControllers.ToArray();
+            AnimatorController[] animatorControllers = entityEmote.animatorControllers.ToArray();
 
             foreach (var animatorController in animatorControllers)
             {
-                int layerIndex = FindOrCreateLayer(animatorController, emoteManager.Emote_Animator_Layer);
+                int layerIndex = FindOrCreateLayer(animatorController, entityEmote.EmoteData.EmoteAnimatorLayer);
 
                 // make sure we have the 'empty' state.
                 EnsureDefaultState(animatorController, layerIndex);
@@ -53,7 +74,7 @@ public class EmoteManagerEditor : Editor
                     AnimationClip clip = state.state.motion as AnimationClip;
                     if (clip != null)
                     {
-                        var emoteData = emoteManager.Emotes.FirstOrDefault(e => e.animationClips.Contains(clip));
+                        var emoteData = entityEmote.EmoteData.Emotes.FirstOrDefault(e => e.animationClips.Contains(clip));
                         if (emoteData != null)
                         {
                             state.state.name = clip.name;  // Rename state to match clip name
@@ -62,9 +83,9 @@ public class EmoteManagerEditor : Editor
                 }
 
                 // collect states to remove.
-                var validClipNames = emoteManager.Emotes.SelectMany(e => e.animationClips).Select(c => c.name).ToList();
+                var validClipNames = entityEmote.EmoteData.Emotes.SelectMany(e => e.animationClips).Select(c => c.name).ToList();
                 var statesToRemove = stateMachine.states
-                    .Where(s => !validClipNames.Contains(s.state.name) && s.state.name != emoteManager.Empty_Animator_State)
+                    .Where(s => !validClipNames.Contains(s.state.name) && s.state.name != entityEmote.EmoteData.EmptyAnimatorState)
                     .ToList();
 
                 // Remove states in a separate step
@@ -79,7 +100,7 @@ public class EmoteManagerEditor : Editor
 
 
                 // finally, add new states for each clip in EmoteManager.
-                foreach (var emoteData in emoteManager.Emotes)
+                foreach (var emoteData in entityEmote.EmoteData.Emotes)
                 {
                     foreach (var clip in emoteData.animationClips)
                     {
@@ -87,6 +108,7 @@ public class EmoteManagerEditor : Editor
                         {
                             var newState = stateMachine.AddState(clip.name);
                             newState.motion = clip;
+                            newState.iKOnFeet = true;
                         }
                     }
                 }
@@ -198,7 +220,7 @@ public class EmoteManagerEditor : Editor
         AnimatorStateMachine stateMachine = animatorController.layers[layerIndex].stateMachine;
 
         // retrieve the name of the empty state.
-        string emptyStateName = ((EmoteManager)target).Empty_Animator_State;
+        string emptyStateName = ((PlayerEmote)target).EmoteData.EmptyAnimatorState;
 
         // check if the default state already exists.
         var defaultState = stateMachine.states.FirstOrDefault(s => s.state.name == emptyStateName).state;
@@ -212,12 +234,12 @@ public class EmoteManagerEditor : Editor
         stateMachine.defaultState = defaultState;
     }
 
-    private void EnsureUniqueClipNames(EmoteManager emoteManager)
+    private void EnsureUniqueClipNames(PlayerEmote entityEmote)
     {
         // dictionary to keep track of the number of duplicates for each clip name.
         Dictionary<string, int> clipNameCounts = new Dictionary<string, int>();
 
-        foreach (var emoteData in emoteManager.Emotes)
+        foreach (var emoteData in entityEmote.EmoteData.Emotes)
         {
             for (int i = 0; i < emoteData.animationClips.Length; i++)
             {

@@ -1,8 +1,10 @@
 using UnityEngine;
 using System.Text;
 using Mirror;
+using System.Collections.Generic;
 
 #if UNITY_EDITOR
+using UnityEditor.Animations;
 using UnityEditor.Events;
 #endif
 
@@ -12,6 +14,9 @@ public class PlayerEmote : NetworkBehaviour
     #region Fields
 
     [Header("Component")]
+    // the emote data reference.
+    public ScriptableEmoteList EmoteData;
+
     // our wonderful player reference, assigned automatically.
     public Player player;
 
@@ -57,20 +62,19 @@ public class PlayerEmote : NetworkBehaviour
     // helper property for audio source, player's is used by default.
     private AudioSource _audioSource => player.audioSource;
 
-    // the emote manager reference, we will also initiate it here.
-    private EmoteManager _emoteManager;
+    #endregion
 
+    // just a editor inspector.
+    #region editor only
+#   if UNITY_EDITOR
+    public List<AnimatorController> animatorControllers = new List<AnimatorController>();
+    #endif
     #endregion
 
     #endregion
 
     // Unity Callbacks.
     #region Unity Callbacks
-
-    private void Awake()
-    {
-        _emoteManager = EmoteManager.Instance;
-    }
 
     private void Update()
     {
@@ -96,8 +100,8 @@ public class PlayerEmote : NetworkBehaviour
     public override void OnStartClient()
     {
         // get the animator layer for the emotes.
-        if (_emoteManager != null)
-            _emoteLayerIndex = player.animator.GetLayerIndex(_emoteManager.Emote_Animator_Layer);
+        if (EmoteData != null)
+            _emoteLayerIndex = player.animator.GetLayerIndex(EmoteData.EmoteAnimatorLayer);
 
         // this is for late joiners.
         if (!isLocalPlayer)
@@ -126,15 +130,19 @@ public class PlayerEmote : NetworkBehaviour
         if (!_allowedMovementState) return;
 
         // Get emote ID and validate
-        int emoteID = _emoteManager.GetEmoteDataID(identifier);
+        int emoteID = EmoteData.GetEmoteID(identifier);
         if (emoteID == -1) return;
 
         // Get emote data and validate
-        EmoteData data = _emoteManager.GetEmoteData(emoteID);
+        EmoteData data = EmoteData.GetEmoteData(emoteID);
         if (data == null) return;
 
         // Select a random animation index
-        byte selectedClipIndex = (byte)Random.Range(0, data.animationClips.Length - 1);
+        byte selectedClipIndex = (byte)Random.Range(0, data.animationClips.Length);
+
+        // just need the lenght to actually roll correctly,
+        // but need to clamp just to be sure (Count vs Lenght).
+        selectedClipIndex = (byte)Mathf.Clamp(selectedClipIndex, 0, data.animationClips.Length - 1);
 
         // Send command to set the current emote
         CmdSetCurrentEmote(emoteID, selectedClipIndex);
@@ -150,7 +158,7 @@ public class PlayerEmote : NetworkBehaviour
 
         // get the data so we can validate the emote type and if we are using a one-shot we need timestamp.
         // if it's loopable, we set -1 as it means it don't have an end-time, so it loops. (in this context).
-        EmoteData data = _emoteManager.GetEmoteData(emoteIndex);
+        EmoteData data = EmoteData.GetEmoteData(emoteIndex);
         NextEmoteEndTime = data.emoteType == EmoteType.OneShot
                            ? NetworkTime.time + data.animationClips[clipIndex].length
                            : -1;
@@ -175,7 +183,7 @@ public class PlayerEmote : NetworkBehaviour
     [ClientCallback]
     private void StartEmote(int id)
     {
-        EmoteData data = _emoteManager.GetEmoteData(id);
+        EmoteData data = EmoteData.GetEmoteData(id);
 
         if (data != null)
         {
@@ -204,7 +212,7 @@ public class PlayerEmote : NetworkBehaviour
             // just the defaul way of doing this is uMMORPG.
             foreach (Animator anim in GetComponentsInChildren<Animator>())
             {
-                anim.Play(clip.name, _emoteLayerIndex);
+                anim.CrossFade(clip.name, EmoteData.AnimationCrossfadeTime, _emoteLayerIndex);
                 anim.SetLayerWeight(_emoteLayerIndex, 1);
             }
         }
@@ -230,7 +238,7 @@ public class PlayerEmote : NetworkBehaviour
         // just the defaul way of doing this is uMMORPG.
         foreach (Animator anim in GetComponentsInChildren<Animator>())
         {
-            anim.Play(_emoteManager.Empty_Animator_State);
+            anim.CrossFade(EmoteData.EmptyAnimatorState, EmoteData.AnimationCrossfadeTime, _emoteLayerIndex);
             anim.SetLayerWeight(_emoteLayerIndex, 0);
         }
     }
@@ -251,9 +259,9 @@ public class PlayerEmote : NetworkBehaviour
         // should already be converted to lowercase but not taking any chances.
         string checkEmoteText = message.ToLower();
 
-        if (_emoteManager != null)
+        if (EmoteData != null)
         {
-            foreach (var emote in _emoteManager.Emotes)
+            foreach (var emote in EmoteData.Emotes)
             {
                 string check = emote.identifier.ToLower();
 

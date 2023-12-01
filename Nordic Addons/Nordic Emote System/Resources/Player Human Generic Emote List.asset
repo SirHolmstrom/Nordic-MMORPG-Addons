@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39b290d1318aa224390b11e58627dead, type: 3}
-  m_Name: EmoteManager
+  m_Script: {fileID: 11500000, guid: 15941cd04395967498c18991eb41e38c, type: 3}
+  m_Name: Player Human Generic Emote List
   m_EditorClassIdentifier: 
-  emotes:
+  Emotes:
   - identifier: Dance
     EmoteText:
       emoteQuote: '{EMOTER} burst into dance.'
@@ -22,13 +22,14 @@ MonoBehaviour:
     - {fileID: 7400000, guid: 4adadac6c58d2954e99f6aa52c3f4dd0, type: 2}
     - {fileID: 7400000, guid: 97042a6a7ba3839429581077381b274f, type: 2}
     audioClips: []
-  - identifier: Wave
+  - identifier: Clap
     EmoteText:
-      emoteQuote: '{EMOTER} wave.'
-      emoteQuoteTarget: '{EMOTER} wave at {TARGET}.'
+      emoteQuote: '{EMOTER} clap excitedly..'
+      emoteQuoteTarget: '{EMOTER} clap excitedly for {TARGET}.'
     emoteType: 1
     animationClips:
-    - {fileID: 7400000, guid: ebae5a944b5bcc2439aaf7bbee7351e2, type: 2}
+    - {fileID: 7400000, guid: 4e7ab8f591aafbe4c951928a7df60c8d, type: 2}
+    - {fileID: 7400000, guid: 25fb434f17783a840b50943fce9358da, type: 2}
     audioClips: []
   - identifier: Cheer
     EmoteText:
@@ -39,17 +40,13 @@ MonoBehaviour:
     - {fileID: 7400000, guid: 54144ff7de7e9e040acd9b7b6f6f03b1, type: 2}
     - {fileID: 7400000, guid: a838cfebda4c0e749aacb9abf38c7c66, type: 2}
     audioClips: []
-  - identifier: Clap
+  - identifier: Wave
     EmoteText:
-      emoteQuote: '{EMOTER} clap excitedly.'
-      emoteQuoteTarget: '{EMOTER} clap excitedly for {TARGET}.'
+      emoteQuote: '{EMOTER} wave.'
+      emoteQuoteTarget: '{EMOTER} wave at {TARGET}.'
     emoteType: 1
     animationClips:
-    - {fileID: 7400000, guid: 4e7ab8f591aafbe4c951928a7df60c8d, type: 2}
-    - {fileID: 7400000, guid: 25fb434f17783a840b50943fce9358da, type: 2}
+    - {fileID: 7400000, guid: ebae5a944b5bcc2439aaf7bbee7351e2, type: 2}
     audioClips: []
   Emote_Animator_Layer: Emote Fullbody
   Empty_Animator_State: Empty
-  animatorControllers:
-  - {fileID: 9100000, guid: 6a9656f614bb04aedb1d40c053bc2dca, type: 2}
-  - {fileID: 9100000, guid: bccec415c84794449bfdc9ed986d8527, type: 2}
