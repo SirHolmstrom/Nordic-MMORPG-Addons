@@ -31,8 +31,10 @@ Now the press Update Animators, it will create a new layer called Emote Fullbody
 <img src="https://jokeoverflow.xyz/Install-Guides/EmoteSystem/s4.png" width="300" alt="Alt text for the image"><img src="https://jokeoverflow.xyz/Install-Guides/EmoteSystem/s5.png" width="300" alt="Alt text for the image">
 
 ### **Step 4**: **Test the Addon**
+*Optional: Drag the UIEmote prefab from Nordic Emote System\Prefabs\UIEmotes to the canvas if you want to test animation via UI.*
 Play and type /<Identifier> the <Identifier> is what you named the emote, in the example setup there is Dance, Wave, Cheer & Clap so /dance, /wave, /cheer, /clap.
 Also if you have a target while doing the emote it will use the Target Emote Quote, if no target just the regular Emote Quote. 
+*You can remove the OnStartLocalplayer Override if you don't want to use the example UI, or have it there, it don't matter.*
 
 ### **OPTIONAL**: **Add more Emotes**
 It's super easy to add more emotes, simply make a new entry in the list, assign as many animation variants as you wish, 
