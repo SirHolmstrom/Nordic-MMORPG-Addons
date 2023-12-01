@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using UnityEditor;
 using UnityEngine;
 using UnityEditor.Animations;
@@ -261,3 +263,5 @@ public class EmoteManagerEditor : Editor
     #endregion
 
 }
+
+#endif

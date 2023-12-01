@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8623aaabd619df94787be1c6241e4d35, type: 3}
+  m_Name: Level Up Reward Data
+  m_EditorClassIdentifier: 
+  LevelUpRewards:
+  - name: 
+    items:
+    - item: {fileID: 11400000, guid: f948f3abf7bba37478f1b366b3da2cee, type: 2}
+      amount: 1
+    - item: {fileID: 11400000, guid: ebde5c85fd92e499493a5ae898bef3cb, type: 2}
+      amount: 1
+    rewards:
+      gold: 50
+      storeCoins: 0
+      skillExperience: 0
+  - name: 
+    items:
+    - item: {fileID: 11400000, guid: f948f3abf7bba37478f1b366b3da2cee, type: 2}
+      amount: 1
+    - item: {fileID: 11400000, guid: ebde5c85fd92e499493a5ae898bef3cb, type: 2}
+      amount: 1
+    rewards:
+      gold: 50
+      storeCoins: 0
+      skillExperience: 0

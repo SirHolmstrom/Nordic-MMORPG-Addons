@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Mirror;
-using UnityEditor.Events;
 using System.Text;
-using UnityEngine.UI;
+using Mirror;
+
+#if UNITY_EDITOR
+using UnityEditor.Events;
+#endif
 
 public class PlayerEmote : NetworkBehaviour
 {

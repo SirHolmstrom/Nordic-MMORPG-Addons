@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Reflection;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = System.Random;
@@ -41,6 +38,25 @@ public static class NordicExtension
     /// <param name="methodName"></param>
     /// <returns></returns>
     public static bool ContainsPersistentListener(this UnityEventString unityEvent, string methodName)
+    {
+        int listenerCount = unityEvent.GetPersistentEventCount();
+        for (int i = 0; i < listenerCount; i++)
+        {
+            if (unityEvent.GetPersistentMethodName(i).Contains(methodName))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// Check if a method (by name) is assigned to a UnityEvent.
+    /// </summary>
+    /// <param name="unityEvent"></param>
+    /// <param name="methodName"></param>
+    /// <returns></returns>
+    public static bool ContainsPersistentListener(this UnityEvent unityEvent, string methodName)
     {
         int listenerCount = unityEvent.GetPersistentEventCount();
         for (int i = 0; i < listenerCount; i++)

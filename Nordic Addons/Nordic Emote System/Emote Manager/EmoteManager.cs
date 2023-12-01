@@ -1,7 +1,10 @@
-using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
+
+#if UNITY_EDITOR
 using UnityEditor.Animations;
+#endif
+
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "EmoteManager", menuName = "Emote System/Emote Manager", order = 1)]
 public class EmoteManager : ScriptableObject
@@ -16,8 +19,7 @@ public class EmoteManager : ScriptableObject
     public static EmoteManager Instance
     {
         get
-        {
-            
+        {     
             if (!_instance)
             {
                 _instance = Resources.Load<EmoteManager>("EmoteManager");
@@ -44,7 +46,9 @@ public class EmoteManager : ScriptableObject
     public List<EmoteData> Emotes => emotes;
 
     // EDITOR ONLY
+#if UNITY_EDITOR
     public List<AnimatorController> animatorControllers;
+#endif
 
     public void Initialize()
     {

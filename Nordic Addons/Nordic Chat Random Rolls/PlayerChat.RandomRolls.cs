@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 using System.Text;
-using Codice.Client.Common.GameUI;
+
+#if UNITY_EDITOR
 using UnityEditor.Events;
+#endif
 
 public partial class PlayerChat
 {
