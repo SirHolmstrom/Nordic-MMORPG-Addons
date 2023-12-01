@@ -97,6 +97,17 @@ public class PlayerEmote : NetworkBehaviour
     // Mirror Callbacks.
     #region Mirror Callback
 
+    // this is just for example purposes:
+    public override void OnStartLocalPlayer()
+    {
+        UIEmotes ui = FindObjectOfType<UIEmotes>();
+
+        if(ui != null)
+        {
+            ui.Init(EmoteData);
+        }
+    }
+
     public override void OnStartClient()
     {
         // get the animator layer for the emotes.
@@ -213,7 +224,6 @@ public class PlayerEmote : NetworkBehaviour
             foreach (Animator anim in GetComponentsInChildren<Animator>())
             {
                 anim.CrossFade(clip.name, EmoteData.AnimationCrossfadeTime, _emoteLayerIndex);
-                anim.SetLayerWeight(_emoteLayerIndex, 1);
             }
         }
     }
@@ -239,7 +249,6 @@ public class PlayerEmote : NetworkBehaviour
         foreach (Animator anim in GetComponentsInChildren<Animator>())
         {
             anim.CrossFade(EmoteData.EmptyAnimatorState, EmoteData.AnimationCrossfadeTime, _emoteLayerIndex);
-            anim.SetLayerWeight(_emoteLayerIndex, 0);
         }
     }
 
