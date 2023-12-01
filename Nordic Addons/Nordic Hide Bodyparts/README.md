@@ -14,15 +14,18 @@ Add the following UnityEvent to PlayerEquipment in the Equipments slots callback
             OnEquipmentChangedEvent.Invoke(oldItem as EquipmentItem, newItem as EquipmentItem);
 ```
 
-![Alt text for the image](https://jokeoverflow.xyz/Install-Guides/hide/s0.png)
+<img src="https://jokeoverflow.xyz/Install-Guides/hide/s0.png" width="950" alt="Alt text for the image">
 
 ### **Step 2**: **Add method to new unity event: **
-![Alt text for the image](https://jokeoverflow.xyz/Install-Guides/hide/s1.png)
+
+<img src="https://jokeoverflow.xyz/Install-Guides/hide/s1.png" width="950" alt="Alt text for the image">
 
 ### **Step 3**: **Setup Bodypart Mapping in PlayerEquipment: **
 Simply assign a enum and the gameobjects (parts) you want to hide.
-![Alt text for the image](https://jokeoverflow.xyz/Install-Guides/hide/s2.png)
+
+<img src="https://jokeoverflow.xyz/Install-Guides/hide/s2.png" width="950" alt="Alt text for the image">
 
 ### **Step 4**: **Setup Equipment items: **
 Simply assign one or multiple enums and they will hide as we equip.
-![Alt text for the image](https://jokeoverflow.xyz/Install-Guides/hide/s3.png)
+
+<img src="https://jokeoverflow.xyz/Install-Guides/hide/s3.png" width="950" alt="Alt text for the image">
