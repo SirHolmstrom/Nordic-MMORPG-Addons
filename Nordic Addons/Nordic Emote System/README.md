@@ -1,9 +1,3 @@
-# NOTE HEAVILY DEVELOPED RIGHT NOW: UPDATE WILL COME TO THIS DOC.
-## **TLDR** 
-Add PlayerEmote to every player class and click Find Animtor Controller then assign the example *Scriptable Emote List* and hit Update Animators. Then if you want too drag the UIEmotes prefab to the canvas and you are ready. 
-No core edits or animator setups other than the automated one and it will not touch your current layers.
-
-
 # Nordic Emote System Addon
 *This addon allows you play emotes, dynamic emote text in chat, and audio to be played and it will automatically setup everything for you after the few steps. The main idea behind the way it works is that it's easy to use for everyone.*
 
