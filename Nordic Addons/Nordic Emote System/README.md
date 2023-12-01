@@ -1,4 +1,4 @@
-# NOTE HEAVILY DEVELOPED ATM UPDATE WILL COME TO THIS DOC.
+# NOTE HEAVILY DEVELOPED RIGHT NOW: UPDATE WILL COME TO THIS DOC.
 
 # Nordic Emote System Addon
 *This addon allows you play emotes and audio and will automatically setup everything for you with the manager. The main idea behind the way it works is that it's easy to use for everyone.*
