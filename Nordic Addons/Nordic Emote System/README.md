@@ -32,6 +32,7 @@ Now the press Update Animators, it will create a new layer called Emote Fullbody
 
 ### **Step 4**: **Test the Addon**
 Play and type /<Identifier> the <Identifier> is what you named the emote, in the example setup there is Dance, Wave, Cheer & Clap so /dance, /wave, /cheer, /clap.
+Also if you have a target while doing the emote it will use the Target Emote Quote, if no target just the regular Emote Quote. 
 
 ### **OPTIONAL**: **Add more Emotes**
 It's super easy to add more emotes, simply make a new entry in the list, assign as many animation variants as you wish, 
