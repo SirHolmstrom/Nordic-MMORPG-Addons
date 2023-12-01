@@ -5,34 +5,36 @@ No core edits or animator setups other than the automated one and it will not to
 
 
 # Nordic Emote System Addon
-*This addon allows you play emotes and audio and will automatically setup everything for you with the manager. The main idea behind the way it works is that it's easy to use for everyone.*
+*This addon allows you play emotes, dynamic emote text in chat, and audio to be played and it will automatically setup everything for you after the few steps. The main idea behind the way it works is that it's easy to use for everyone.*
 
-<center> <img src="https://jokeoverflow.xyz/Install-Guides/EmoteSystem/emote02.png" width="300" alt="Alt text for the image"> </center>
+<img src="https://jokeoverflow.xyz/Install-Guides/EmoteSystem/s8.png" width="200" alt="Alt text for the image"> <img src="https://jokeoverflow.xyz/Install-Guides/EmoteSystem/s9.png" width="200" alt="Alt text for the image"> <img src="https://jokeoverflow.xyz/Install-Guides/EmoteSystem/s10.png" width="200" alt="Alt text for the image">
 
-**After importing** the addon everything should work, right out of the box code wise, make sure you have the **Utils** folder. 
+
+**After importing** the addon everything should work, right out of the box code wise, there are no core edits, make sure you have the **Utils** folder. 
 <br>
 ## **Installation Steps**
 
 ### **Step 0**: **Add PlayerEmote to every player prefab.**
-It does everything it need so just leave it.
+It will add a listener automatically to PlayerChat component and everything else works out of the box, you only need to do a few button clicks from here:
 
-![Alt text for the image](https://jokeoverflow.xyz/Install-Guides/EmoteSystem/newplayeremote.png)
+<img src="https://jokeoverflow.xyz/Install-Guides/EmoteSystem/s1.png" width="300" alt="Alt text for the image">
 
-### **Step 1**: **Select EmoteManager**
-The EmoteManager Scriptable Object is located at:
-*Assets\uMMORPG\Scripts\Addons\Nordic-MMORPG-Addons\Nordic Addons\EmoteSystem\***EmoteManager**
+### **Step 1**: **Press: "Find Animator Controller**
+This will select the runtime controller you are using for the player.
 
-![Alt text for the image](https://jokeoverflow.xyz/Install-Guides/EmoteSystem/manager.png)
+<img src="https://jokeoverflow.xyz/Install-Guides/EmoteSystem/s2.png" width="300" alt="Alt text for the image">
 
-### **Step 2**: **Assign your players Animator Controller**
-Drag the **Animator Controller** from your player classes, if they share the same controller you only need to assign it one time.**.
 
-![Alt text for the image](https://jokeoverflow.xyz/Install-Guides/EmoteSystem/GetController.png)
+### **Step 2**: **Assign a Scriptable Emote List**
+Simply assign the included **Scriptable Emote List** or create your own right away.
+*Assets\uMMORPG\Scripts\Addons\Nordic-MMORPG-Addons\Nordic Addons\Nordic Emote System\Resources\Player Human Generic Emote List*
+
+<img src="https://jokeoverflow.xyz/Install-Guides/EmoteSystem/s3.png" width="300" alt="Alt text for the image">
 
 ### **Step 3**: **Click Update Animators**
-Now the Emote Manager will create a new layer called Emote Fullbody and add all the animation clips that are inside your Emotes list.
-
-![Alt text for the image](https://jokeoverflow.xyz/Install-Guides/EmoteSystem/clickUpdate.png)
+Now the press Update Animators, it will create a new layer called Emote Fullbody and add all the animation clips that are inside your Emotes list.
+<br>
+<img src="https://jokeoverflow.xyz/Install-Guides/EmoteSystem/s4.png" width="300" alt="Alt text for the image"><img src="https://jokeoverflow.xyz/Install-Guides/EmoteSystem/s5.png" width="300" alt="Alt text for the image">
 
 ### **Step 4**: **Test the Addon**
 Play and type /<Identifier> the <Identifier> is what you named the emote, in the example setup there is Dance, Wave, Cheer & Clap so /dance, /wave, /cheer, /clap.
@@ -44,9 +46,8 @@ decide if you want it to be able to loop or not,
 if you wish to not use the chat emote text, then just leave blank,
 then **CLICK UPDATE ANIMATOR** and it will work.
 
-![Alt text for the image](https://jokeoverflow.xyz/Install-Guides/EmoteSystem/populate.png)
+<img src="https://jokeoverflow.xyz/Install-Guides/EmoteSystem/s6.png" width="400" alt="Alt text for the image">
 
-<br>
 <br>
 
 ### Note:
