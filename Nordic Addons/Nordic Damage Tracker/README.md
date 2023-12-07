@@ -17,7 +17,7 @@ Add the following ``UnityEvent<Entity, int>`` to Combat.cs:
 
 <img src="https://jokeoverflow.xyz/Install-Guides/tracker/s1.png" width="950" alt="Alt text for the image">
 
-### **Step 2**: Drag in the included CANVAS prefab:
+### **Step 2**: Drag in the included CANVAS prefab without parenting it:
 locate the prefab at: ``..\Nordic Damage Tracker\Prefabs\[Canvas]DamageTracker.prefab``
 We will be redrawing the damage tracker many times so it's suggested to have it's own Canvas so we don't have to redraw the whole UI.
 
