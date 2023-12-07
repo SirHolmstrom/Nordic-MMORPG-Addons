@@ -29,3 +29,7 @@ It will scan your spawn list for Player classes and add it automatically, don't 
 
 ### **Step 4**: **Test the addon: **
 Go ahead and try to hit a couple of monsters or other players and your damage will be tracked!
+
+
+### Potential incompatible 
+if you already have a OnStartClient override for the Player.cs you have to move the lazy init from DamageTracker.Partials.
