@@ -5,8 +5,9 @@
 <br>
 ## **Installation Steps**
 
-### **Step 1**: **Minor Core adjustment**
-*Make sure you have the Utils Folder for the Addons.*
+### **Step 1**: **Minor Core adjustment and ensure Partials**
+**Make sure you have the Utils Folder for the Addons.**
+**Make sure Combat.cs is partial** ``public partial class Combat : NetworkBehaviour``
 Add the following ``UnityEvent<Entity, int>`` to Combat.cs:
 
 ```
