@@ -10,7 +10,7 @@
 <br>
 ## **Installation Steps**
 
-### **Step 0**: **Add PlayerEmote to every player prefab.**
+### **Step 0**: **Add PlayerEmote to every player prefab. (MAKE SURE THAT YOU HAVE THE UTILS FOLDER)**
 It will add a listener automatically to PlayerChat component and everything else works out of the box, you only need to do a few button clicks from here:
 
 <img src="https://jokeoverflow.xyz/Install-Guides/EmoteSystem/s1.png" width="300" alt="Alt text for the image">
