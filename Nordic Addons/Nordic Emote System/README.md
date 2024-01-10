@@ -3,6 +3,7 @@
 
 <img src="https://jokeoverflow.xyz/Install-Guides/EmoteSystem/s8.png" width="200" alt="Alt text for the image"> <img src="https://jokeoverflow.xyz/Install-Guides/EmoteSystem/s9.png" width="200" alt="Alt text for the image"> <img src="https://jokeoverflow.xyz/Install-Guides/EmoteSystem/s10.png" width="200" alt="Alt text for the image">
 
+**ALWAYS MAKE SURE THAT YOU HAVE THE UTILS FOLDER IN YOUR PROJECT**
 
 **After importing** the addon everything should work, right out of the box code wise, there are no core edits, make sure you have the **Utils** folder. 
 <br>
