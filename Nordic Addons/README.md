@@ -15,3 +15,4 @@
 #### - Discovery (Adding broadcasted zones so others can see where you are (not server bound), also give experience on discovery ).
 #### - Flight Paths ( Discover paths and travel between them (not teleporting).
 #### - Level Up UI & Rewards per level.
+#### - Core for Skill System (target/targetless/AOE/Target/DoTs/HoTs/Fully configurable AOE with HoTs/DoTs per tick etc. (Over time).
