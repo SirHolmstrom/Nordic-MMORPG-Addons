@@ -1,6 +1,6 @@
 #Make sure that Utils Folder is always up to date if you install a new addon!
 
-# Upcoming addons 2024 (not in order)
+# Upcoming addons 2025 (not in order)
 ### Most of them are already done, just polishing them and making sure they require little to no core edits.
 
 #### - Character Customisation with auto populating UI and preview.
